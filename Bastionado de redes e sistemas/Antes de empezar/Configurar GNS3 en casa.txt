@@ -1,0 +1,8 @@
+En casa para que funcionen los escenarios en GSN3 deberéis ejecutar una serie de pasos:
+
+Aparte de la instalación de docker, gns3 y todas sus dependencias (libvirt, ubridge, wireshark, etc.) es necesario instalar los paquetes para acceder por VNC a los containers y máquinas con interfaz gráfica, para ello ejecutamos:
+
+apt install –y xtightvncviewer tigervnc-standalone-server 
+Además será necesario ejecutar el siguiente comando como root:
+
+sed -i 's/gns3volumes{}/{}/' $(find /usr -name docker_vm.py | grep gns3*server)
